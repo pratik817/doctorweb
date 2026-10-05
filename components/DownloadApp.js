@@ -72,18 +72,31 @@ export default function DownloadApp({
 
         <div className="flex items-start justify-center gap-6 lg:gap-8">
           {phones.map((p, i) => (
-            <Image
+            <div
               key={p.src}
-              src={p.src}
-              alt={p.alt}
-              width={p.width}
-              height={p.height}
-              className={`h-auto mix-blend-multiply ${
+              className={`relative overflow-hidden rounded-[38px] border-[6px] border-gray-800 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] ${
                 i === 0
-                  ? "w-[44vw] max-w-[272px] lg:w-[210px] xl:w-[272px]"
-                  : "mt-1 w-[40vw] max-w-[265px] lg:w-[205px] xl:w-[265px]"
+                  ? "w-[44vw] max-w-[240px] lg:w-[195px] xl:w-[240px]"
+                  : "mt-8 w-[40vw] max-w-[230px] lg:w-[185px] xl:w-[230px]"
               }`}
-            />
+            >
+              {/* Notch */}
+              <div className="relative z-10 flex h-7 items-center justify-center bg-black">
+                <div className="h-3.5 w-20 rounded-full bg-gray-900" />
+              </div>
+              {/* Screen / screenshot */}
+              <Image
+                src={p.src}
+                alt={p.alt}
+                width={p.width}
+                height={p.height}
+                className="h-auto w-full"
+              />
+              {/* Home indicator */}
+              <div className="flex h-5 items-center justify-center bg-black">
+                <div className="h-1 w-16 rounded-full bg-gray-600" />
+              </div>
+            </div>
           ))}
         </div>
       </div>

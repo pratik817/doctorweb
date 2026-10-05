@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Heart, Mail, MapPin, Phone } from "lucide-react";
 import { themes } from "@/lib/themes";
 
@@ -14,9 +17,11 @@ const quickLinks = [
 const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms & Conditions" },
+  { href: "/refund-policy", label: "Refund Policy" },
   { href: "#", label: "Cookie Policy" },
   { href: "#", label: "Disclaimer" },
-  { href: "#", label: "FAQs" },
+  // FAQ href is resolved dynamically in the component
+  { href: "faq", label: "FAQs" },
 ];
 
 // lucide-react dropped brand icons, so the four social glyphs are inline.
@@ -40,9 +45,24 @@ const socials = [
 ];
 
 export default function Footer({ theme = "green" }) {
+  const pathname = usePathname();
   const t = themes[theme];
   const colTitle = "mb-5 text-lg font-semibold";
   const link = "text-[15px] text-white/90 transition-colors hover:text-white";
+
+  const getQuickLinkHref = (href) => {
+    if (pathname === "/doctor" && href === "/#download") {
+      return "/doctor#download";
+    }
+    return href;
+  };
+
+  const getLegalLinkHref = (href) => {
+    if (href === "faq") {
+      return pathname.startsWith("/doctor") ? "/doctor/faq" : "/faq";
+    }
+    return href;
+  };
 
   return (
     <footer id="contact" className={`${t.footerBg} text-white`}>
@@ -81,7 +101,7 @@ export default function Footer({ theme = "green" }) {
           <ul className="space-y-3">
             {quickLinks.map((l) => (
               <li key={l.label}>
-                <Link href={l.href} className={link}>
+                <Link href={getQuickLinkHref(l.href)} className={link}>
                   {l.label}
                 </Link>
               </li>
@@ -94,7 +114,7 @@ export default function Footer({ theme = "green" }) {
           <ul className="space-y-3">
             {legalLinks.map((l) => (
               <li key={l.label}>
-                <Link href={l.href} className={link}>
+                <Link href={getLegalLinkHref(l.href)} className={link}>
                   {l.label}
                 </Link>
               </li>

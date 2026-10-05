@@ -1,18 +1,43 @@
 "use client";
 
 import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const field =
   "w-full rounded-md bg-gray-100 px-4 py-3 text-[15px] text-gray-900 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-indigo-400";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    // No backend yet: wire this to an API route or email service when ready.
-    setSent(true);
-    e.currentTarget.reset();
+    const form = e.currentTarget; // save ref before any await
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName:  formData.get("firstName"),
+      lastName:   formData.get("lastName"),
+      email:      formData.get("email"),
+      phone:      formData.get("phone") || "",
+      message:    formData.get("message"),
+      submittedAt: serverTimestamp(),
+    };
+
+    try {
+      await addDoc(collection(db, "contacts"), data);
+      setSent(true);
+      form.reset();
+    } catch (err) {
+      console.error("Firestore error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -37,13 +62,19 @@ export default function ContactForm() {
       <div className="mt-6 text-center">
         <button
           type="submit"
-          className="rounded-full bg-[#4f46e5] px-10 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[#4338ca]"
+          disabled={loading}
+          className="rounded-full bg-[#4f46e5] px-10 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[#4338ca] disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Send Message
+          {loading ? "Sending…" : "Send Message"}
         </button>
         {sent && (
           <p role="status" className="mt-4 text-sm font-medium text-white">
             Thanks! Your message has been noted. We&rsquo;ll get back to you soon.
+          </p>
+        )}
+        {error && (
+          <p role="alert" className="mt-4 text-sm font-medium text-red-200">
+            {error}
           </p>
         )}
       </div>

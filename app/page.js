@@ -271,9 +271,6 @@ export default function PatientHome() {
                     </span>
                     <h3 className="mt-5 text-xl font-bold">{c.title}</h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-gray-600">{c.text}</p>
-                    <a href="#" className="mt-auto flex items-center gap-2 text-[15px] font-semibold">
-                      Explore <ArrowRight size={16} />
-                    </a>
                   </div>
                 </article>
               ))}
