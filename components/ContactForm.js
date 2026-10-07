@@ -29,7 +29,7 @@ export default function ContactForm() {
     };
 
     try {
-      await addDoc(collection(db, "contacts"), data);
+      await addDoc(collection(db, "enquiries"), data);
       setSent(true);
       form.reset();
     } catch (err) {
