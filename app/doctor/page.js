@@ -261,8 +261,8 @@ export default function DoctorPage() {
           headingClass="text-[#6a14a3]"
           buttonClass="bg-[#6a14a3]"
           phones={[
-            { src: "/images/phone-doctor-1.jpeg", alt: "Doctor app dashboard", width: 480, height: 900 },
-            { src: "/images/phone-doctor-2.webp", alt: "Doctor app manage patients screen", width: 480, height: 900 },
+            { src: "/images/phone-doctor-1.jpeg", alt: "Doctor app dashboard", width: 712, height: 1600 },
+            { src: "/images/phone-doctor-requests.webp", alt: "Doctor app patient requests screen", width: 367, height: 826 },
           ]}
         />
       </main>

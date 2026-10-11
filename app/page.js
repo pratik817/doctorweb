@@ -300,8 +300,8 @@ export default function PatientHome() {
           headingClass="text-[#0a6a0a]"
           buttonClass="bg-gradient-to-b from-[#168a1f] to-[#0a5c0f]"
           phones={[
-            { src: "/images/phone-patient-1.webp", alt: "Doctor4Home app home screen", width: 560, height: 620 },
-            { src: "/images/phone-patient-2.webp", alt: "Doctor4Home app search results", width: 552, height: 590 },
+            { src: "/images/phone-patient-home.webp", alt: "Doctor4Home app home screen", width: 349, height: 786 },
+            { src: "/images/phone-patient-search.webp", alt: "Doctor4Home app search results", width: 341, height: 769 },
           ]}
         />
       </main>

@@ -70,27 +70,25 @@ export default function DownloadApp({
           </div>
         </div>
 
-        <div className="flex items-start justify-center gap-6 lg:gap-8">
-          {phones.map((p, i) => (
+        {/* Both phones share one width and stretch to one height, so they sit level. */}
+        <div className="flex items-stretch justify-center gap-6 lg:gap-8">
+          {phones.map((p) => (
             <div
               key={p.src}
-              className={`relative overflow-hidden rounded-[38px] border-[6px] border-gray-800 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] ${
-                i === 0
-                  ? "w-[44vw] max-w-[240px] lg:w-[195px] xl:w-[240px]"
-                  : "mt-8 w-[40vw] max-w-[230px] lg:w-[185px] xl:w-[230px]"
-              }`}
+              className="relative flex w-[42vw] max-w-[240px] flex-col overflow-hidden rounded-[38px] border-[6px] border-gray-800 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] lg:w-[195px] xl:w-[240px]"
             >
               {/* Notch */}
               <div className="relative z-10 flex h-7 items-center justify-center bg-black">
                 <div className="h-3.5 w-20 rounded-full bg-gray-900" />
               </div>
-              {/* Screen / screenshot */}
+              {/* Screen / screenshot. It grows to fill the frame; a shorter
+                  screenshot is cropped at the bottom rather than stretched. */}
               <Image
                 src={p.src}
                 alt={p.alt}
                 width={p.width}
                 height={p.height}
-                className="h-auto w-full"
+                className="h-auto w-full grow object-cover object-top"
               />
               {/* Home indicator */}
               <div className="flex h-5 items-center justify-center bg-black">
