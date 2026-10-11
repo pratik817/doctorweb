@@ -29,28 +29,28 @@ const testimonials = [
   {
     name: "Dr. Rohan Mishra",
     role: "Surgeon",
-    avatar: "team-1",
+    avatar: "doctor-1",
     quote: "I love the flexibility. I can accept requests anytime based on my availability. Fantastic platform for home consultations!",
     pos: "md:left-[3px] md:top-[3px]",
   },
   {
     name: "Dr. Priya Sharma",
     role: "Pediatrician",
-    avatar: "team-3",
+    avatar: "doctor-2",
     quote: "Doctor4Home helped me grow my practice significantly. The app is smooth and patients are always satisfied.",
     pos: "md:left-[148px] md:top-[116px]",
   },
   {
     name: "Dr. Anil Verma",
     role: "General Physician",
-    avatar: "team-5",
+    avatar: "doctor-3",
     quote: "Secure payments and easy scheduling make this the best platform I have worked with in my 10 years of practice.",
     pos: "md:left-[3px] md:top-[225px]",
   },
   {
     name: "Dr. Sneha Patel",
     role: "Dermatologist",
-    avatar: "team-2",
+    avatar: "doctor-4",
     quote: "The verification process gave my patients confidence in me. Highly recommend this to every doctor.",
     pos: "md:left-[148px] md:top-[336px]",
   },
@@ -122,9 +122,10 @@ export default function DoctorPage() {
             {/* Floating cards */}
             <div className="relative flex flex-col gap-3 md:block md:h-[410px] md:w-[490px]">
               <div className="absolute left-[88px] top-[35px] hidden h-[348px] w-[315px] bg-[#ede8f5] md:block" />
+              {/* centred on the panel's top-right corner (403, 35) */}
               <Quote
                 size={30}
-                className="absolute right-[-8px] top-[25px] hidden fill-[#7a3fbf] text-[#7a3fbf] md:block"
+                className="absolute left-[388px] top-[20px] hidden fill-[#7a3fbf] text-[#7a3fbf] md:block"
               />
               {testimonials.map((d) => (
                 <article

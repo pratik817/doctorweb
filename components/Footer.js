@@ -127,15 +127,19 @@ export default function Footer({ theme = "green" }) {
           <ul className="space-y-4 text-[15px] text-white/90">
             <li className="flex gap-3">
               <MapPin size={20} className="mt-0.5 shrink-0" />
-              <span>123 Healthcare Street, Medical District, City 12345</span>
+              <span>
+                Swaraj Pride B-F.NO.107, S.NO.40/3/2, Dhawale Chowk Rd.,
+                Punawale, Chinchwadgaon, Pune, Pune City, Maharashtra, India,
+                411033
+              </span>
             </li>
             <li className="flex gap-3">
               <Phone size={20} className="shrink-0" />
-              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+              <a href="tel:+919823532688">+91-9823532688</a>
             </li>
             <li className="flex gap-3">
               <Mail size={20} className="shrink-0" />
-              <a href="mailto:support@doctor4home.com">support@doctor4home.com</a>
+              <a href="mailto:helpdesk.d4h@gmail.com">helpdesk.d4h@gmail.com</a>
             </li>
           </ul>
         </div>

@@ -18,7 +18,7 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <Navbar theme="blue" />
+      <Navbar theme="blue" tinted />
       <main>
         <section className="mx-auto max-w-[1100px] px-5 pt-14 sm:pt-20">
           <h1 className="font-display text-5xl text-[#2f5fc4]">About Us</h1>

@@ -77,7 +77,6 @@ const categories = [
     icon: Stethoscope,
     title: "General Physician",
     text: "Expert care for common illnesses and health checkups",
-    active: true,
   },
   {
     img: "cat-pediatric",
@@ -107,11 +106,14 @@ export default function PatientHome() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-[linear-gradient(200deg,#0f8a1e_0%,#0a5f12_45%,#000_100%)] px-5 pt-16 text-center sm:pt-[72px]">
           <RoleToggle active="patient" />
-          <h1 className="mt-16 font-display text-5xl font-normal tracking-wide text-[#fffbc2] sm:mt-20 sm:text-6xl lg:text-[68px]">
+          {/* Sizes are the Figma values (56px / 24.33px); with both lines centred
+              they put the "B" of Book over the last "e" of Schedule. */}
+          <h1 className="mt-16 font-display text-5xl font-normal text-[#fffbc2] sm:mt-20 md:text-[56px]">
             Book a Doctor at Home
           </h1>
-          <p className="mx-auto mt-8 max-w-[800px] text-lg leading-relaxed text-white sm:text-[26px] sm:leading-[1.45]">
-            Schedule a doctor’s visit anytime. Our trusted doctors provide quality
+          <p className="mx-auto mt-8 max-w-[800px] text-lg leading-relaxed text-white sm:text-[24.33px] sm:leading-[37px] lg:max-w-none">
+            Schedule a doctor’s visit anytime. Our trusted doctors provide quality{" "}
+            <br className="hidden lg:block" />
             healthcare right at your doorstep.
           </p>
 
@@ -135,9 +137,10 @@ export default function PatientHome() {
           <div className="mx-auto grid max-w-[1100px] items-center gap-12 px-5 md:grid-cols-[490px_1fr] md:gap-16">
             <div className="relative flex flex-col gap-3 md:block md:h-[410px] md:w-[490px]">
               <div className="absolute left-[88px] top-[35px] hidden h-[348px] w-[315px] bg-[#ebebe8] md:block" />
+              {/* centred on the grey panel's top-right corner (403, 35) */}
               <Quote
                 size={30}
-                className="absolute right-[-8px] top-[25px] hidden fill-[#2f6e8a] text-[#2f6e8a] md:block"
+                className="absolute left-[388px] top-[20px] hidden fill-[#2f6e8a] text-[#2f6e8a] md:block"
               />
               {testimonials.map((p) => (
                 <article
@@ -281,11 +284,7 @@ export default function PatientHome() {
                   />
                   <div className="absolute inset-0 bg-white/80" />
                   <div className="relative flex h-full flex-col p-8 text-gray-900">
-                    <span
-                      className={`flex h-14 w-14 items-center justify-center rounded-xl ${
-                        c.active ? "bg-[#1f7a2a] text-white" : "bg-[#f1f0dc] text-gray-800"
-                      }`}
-                    >
+                    <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#1f7a2a] text-white">
                       <c.icon size={26} />
                     </span>
                     <h3 className="mt-5 text-xl font-bold">{c.title}</h3>

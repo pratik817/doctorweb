@@ -92,14 +92,14 @@ const sections = [
       "Select the relevant appointment and tap 'Request Refund'.",
       "Provide a brief reason for the refund request.",
       "Our support team will review and respond within 2 business days.",
-      "Alternatively, email us at support@doctor4home.com with your booking ID and reason.",
+      "Alternatively, email us at helpdesk.d4h@gmail.com with your booking ID and reason.",
     ],
   },
   {
     title: "Changes to This Policy",
     paragraphs: [
       "Doctor4Home reserves the right to modify this Refund Policy at any time. Changes will be effective immediately upon posting to this page. We encourage you to review this policy periodically. Continued use of our services after any change constitutes acceptance of the updated policy.",
-      "If you have any questions about this Refund Policy, please contact us through the Contact page or email us at support@doctor4home.com.",
+      "If you have any questions about this Refund Policy, please contact us through the Contact page or email us at helpdesk.d4h@gmail.com.",
     ],
   },
 ];

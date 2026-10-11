@@ -6,15 +6,18 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = { title: "Contact Us" };
 
 const info = [
-  { icon: MapPin, text: "1055 Arthur ave Elk Groot, 67. New Palmas South Carolina." },
-  { icon: Phone, text: "+1 234 678 9108 99" },
-  { icon: Mail, text: "Contact@moralizer.com" },
+  {
+    icon: MapPin,
+    text: "Swaraj Pride B-F.NO.107, S.NO.40/3/2, Dhawale Chowk Rd., Punawale, Chinchwadgaon, Pune, Pune City, Maharashtra, India, 411033",
+  },
+  { icon: Phone, text: "+91-9823532688" },
+  { icon: Mail, text: "helpdesk.d4h@gmail.com" },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      <Navbar theme="blue" />
+      <Navbar theme="blue" tinted />
       <main className="flex-1">
         <section className="mx-auto grid max-w-[1100px] items-center gap-12 px-5 py-16 sm:py-24 md:grid-cols-[1fr_350px] lg:grid-cols-[1fr_350px]">
           <div>
