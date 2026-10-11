@@ -21,10 +21,30 @@ import { themes } from "@/lib/themes";
 const t = themes.green;
 
 const testimonials = [
-  { name: "Annette Black", avatar: "avatar-1", pos: "md:left-[3px] md:top-[3px]" },
-  { name: "John Chris", avatar: "avatar-3", pos: "md:left-[148px] md:top-[116px]" },
-  { name: "Kathryn Murphy", avatar: "avatar-2", pos: "md:left-[3px] md:top-[225px]" },
-  { name: "Leslie Alexander", avatar: "avatar-4", pos: "md:left-[148px] md:top-[336px]" },
+  { 
+    name: "Aarti Sharma", 
+    avatar: "avatar-1", 
+    quote: "Booking a doctor for my mother was so easy. The doctor arrived on time and was very professional and caring.",
+    pos: "md:left-[3px] md:top-[3px]" 
+  },
+  { 
+    name: "Vikram Singh", 
+    avatar: "avatar-3", 
+    quote: "Excellent service! Saved me a trip to the clinic when I was too sick to travel. Highly recommended to everyone.",
+    pos: "md:left-[148px] md:top-[116px]" 
+  },
+  { 
+    name: "Pooja Desai", 
+    avatar: "avatar-2", 
+    quote: "The doctors are highly qualified and very patient. This is a fantastic initiative for affordable healthcare at home.",
+    pos: "md:left-[3px] md:top-[225px]" 
+  },
+  { 
+    name: "Ramesh Iyer", 
+    avatar: "avatar-4", 
+    quote: "Very reliable and transparent pricing. No hidden fees at all. The entire scheduling process is incredibly smooth.",
+    pos: "md:left-[148px] md:top-[336px]" 
+  },
 ];
 
 const steps = [
@@ -91,8 +111,8 @@ export default function PatientHome() {
             Book a Doctor at Home
           </h1>
           <p className="mx-auto mt-8 max-w-[800px] text-lg leading-relaxed text-white sm:text-[26px] sm:leading-[1.45]">
-            Schedule a doctor’s visit anytime. Our trusted doctors provide
-            quality healthcare right at your doorstep.
+            Schedule a doctor’s visit anytime. Our trusted doctors provide quality
+            healthcare right at your doorstep.
           </p>
 
           <div className="relative mx-auto mt-14 h-[min(380px,60vw)] w-[min(640px,92vw)]">
@@ -134,8 +154,7 @@ export default function PatientHome() {
                   <div>
                     <h3 className="font-serif text-[13px] font-bold">{p.name}</h3>
                     <p className="mt-1 text-[10px] leading-snug text-gray-400">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore
+                      {p.quote}
                     </p>
                   </div>
                 </article>
@@ -147,7 +166,7 @@ export default function PatientHome() {
                 Testimonials
               </span>
               <h2 className="mt-5 font-serif text-4xl font-bold text-[#0a6a0a]">
-                What are Client says
+                What Our Client says
               </h2>
               <p className="mt-4 text-xl text-[#1d4d12]">
                 Real Stories from Happy Families
