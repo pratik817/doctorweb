@@ -23,25 +23,25 @@ const t = themes.green;
 const testimonials = [
   { 
     name: "Aarti Sharma", 
-    avatar: "avatar-1", 
+    avatar: "avatar-patient-1", 
     quote: "Booking a doctor for my mother was so easy. The doctor arrived on time and was very professional and caring.",
     pos: "md:left-[3px] md:top-[3px]" 
   },
   { 
     name: "Vikram Singh", 
-    avatar: "avatar-3", 
+    avatar: "avatar-patient-2", 
     quote: "Excellent service! Saved me a trip to the clinic when I was too sick to travel. Highly recommended to everyone.",
     pos: "md:left-[148px] md:top-[116px]" 
   },
   { 
     name: "Pooja Desai", 
-    avatar: "avatar-2", 
+    avatar: "avatar-patient-3", 
     quote: "The doctors are highly qualified and very patient. This is a fantastic initiative for affordable healthcare at home.",
     pos: "md:left-[3px] md:top-[225px]" 
   },
   { 
     name: "Ramesh Iyer", 
-    avatar: "avatar-4", 
+    avatar: "avatar-patient-4", 
     quote: "Very reliable and transparent pricing. No hidden fees at all. The entire scheduling process is incredibly smooth.",
     pos: "md:left-[148px] md:top-[336px]" 
   },
@@ -101,7 +101,7 @@ const categories = [
 export default function PatientHome() {
   return (
     <>
-      <Navbar theme="green" />
+      <Navbar theme="green" design="line" />
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-[linear-gradient(200deg,#0f8a1e_0%,#0a5f12_45%,#000_100%)] px-5 pt-16 text-center sm:pt-[72px]">
@@ -305,7 +305,7 @@ export default function PatientHome() {
           ]}
         />
       </main>
-      <Footer theme="green" />
+      <Footer theme="green" design="line" />
     </>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Heart, Mail, MapPin, Phone } from "lucide-react";
-import { themes } from "@/lib/themes";
+import { themes, colourWash, brandLine } from "@/lib/themes";
+import Logo from "@/components/Logo";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -44,11 +44,15 @@ const socials = [
   },
 ];
 
-export default function Footer({ theme = "green" }) {
+// Follows the header design on the same page: "wash" tints the whole footer;
+// "line" keeps it plain with the colour line along its top edge.
+export default function Footer({ theme = "green", tinted = false, design = "wash" }) {
   const pathname = usePathname();
   const t = themes[theme];
-  const colTitle = "mb-5 text-lg font-semibold";
-  const link = "text-[15px] text-white/90 transition-colors hover:text-white";
+  // Same base colour as the header on that page, with the same colour wash on top.
+  const bg = tinted ? t.navBg : "bg-white";
+  const colTitle = "mb-5 text-lg font-semibold text-gray-900";
+  const link = "text-[15px] text-gray-700 transition-colors hover:text-black";
 
   const getQuickLinkHref = (href) => {
     if (pathname === "/doctor" && href === "/#download") {
@@ -65,18 +69,17 @@ export default function Footer({ theme = "green" }) {
   };
 
   return (
-    <footer id="contact" className={`${t.footerBg} text-white`}>
+    <footer
+      id="contact"
+      className={`relative ${bg} text-gray-800 ${design === "wash" ? `border-t border-gray-200 ${colourWash}` : ""}`}
+    >
+      {design === "line" && (
+        <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-1 ${brandLine}`} />
+      )}
       <div className="mx-auto grid max-w-[1100px] gap-10 px-5 pb-10 pt-14 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_1fr_1.4fr]">
         <div>
-          <Image
-            src="/images/logo.png"
-            alt="Doctor4Home - Healthcare Redefined"
-            width={230}
-            height={52}
-            unoptimized
-            className="h-[52px] w-auto brightness-0 invert"
-          />
-          <p className="mt-6 max-w-[260px] leading-relaxed text-white/90">
+          <Logo large />
+          <p className="mt-6 max-w-[260px] leading-relaxed text-gray-700">
             Quality healthcare at your doorstep. We bring trusted medical
             professionals to the comfort of your home.
           </p>
@@ -86,9 +89,9 @@ export default function Footer({ theme = "green" }) {
                 key={s.label}
                 href="#"
                 aria-label={s.label}
-                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 transition-colors hover:bg-white/20"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-black/5 transition-colors hover:bg-black/10"
               >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-white" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-gray-800" aria-hidden="true">
                   <path d={s.path} fillRule="evenodd" />
                 </svg>
               </a>
@@ -124,7 +127,7 @@ export default function Footer({ theme = "green" }) {
 
         <div>
           <h3 className={colTitle}>Contact Us</h3>
-          <ul className="space-y-4 text-[15px] text-white/90">
+          <ul className="space-y-4 text-[15px] text-gray-700">
             <li className="flex gap-3">
               <MapPin size={20} className="mt-0.5 shrink-0" />
               <span>
@@ -146,12 +149,10 @@ export default function Footer({ theme = "green" }) {
       </div>
 
       <div className="mx-auto max-w-[1100px] px-5 pb-8">
-        <div
-          className={`flex flex-col items-center justify-between gap-2 border-t pt-6 text-sm text-white/60 sm:flex-row ${t.footerDivider}`}
-        >
+        <div className="flex flex-col items-center justify-between gap-2 border-t border-black/10 pt-6 text-sm text-gray-600 sm:flex-row">
           <p>© 2026 Doctor4Home. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
-            Made with <Heart size={14} className="fill-white/70" /> for better
+            Made with <Heart size={14} className="fill-gray-500" /> for better
             healthcare
           </p>
         </div>

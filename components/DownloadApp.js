@@ -75,12 +75,11 @@ export default function DownloadApp({
           {phones.map((p) => (
             <div
               key={p.src}
-              className="relative flex w-[42vw] max-w-[240px] flex-col overflow-hidden rounded-[38px] border-[6px] border-gray-800 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] lg:w-[195px] xl:w-[240px]"
+              className="relative flex w-[40vw] max-w-[228px] flex-col overflow-hidden rounded-[34px] border-[6px] border-gray-800 bg-black shadow-[0_20px_60px_rgba(0,0,0,0.35)] lg:w-[186px] xl:w-[228px]"
             >
-              {/* Notch */}
-              <div className="relative z-10 flex h-7 items-center justify-center bg-black">
-                <div className="h-3.5 w-20 rounded-full bg-gray-900" />
-              </div>
+              {/* Camera pill, drawn over the screen so the frame adds no height.
+                  It sits in the gap between the clock and the status icons. */}
+              <div className="absolute left-1/2 top-[7px] z-10 h-[14px] w-[58px] -translate-x-1/2 rounded-full bg-black" />
               {/* Screen / screenshot. It grows to fill the frame; a shorter
                   screenshot is cropped at the bottom rather than stretched. */}
               <Image
@@ -90,10 +89,8 @@ export default function DownloadApp({
                 height={p.height}
                 className="h-auto w-full grow object-cover object-top"
               />
-              {/* Home indicator */}
-              <div className="flex h-5 items-center justify-center bg-black">
-                <div className="h-1 w-16 rounded-full bg-gray-600" />
-              </div>
+              {/* Home indicator, also over the screen */}
+              <div className="absolute bottom-[5px] left-1/2 z-10 h-1 w-14 -translate-x-1/2 rounded-full bg-black/75" />
             </div>
           ))}
         </div>

@@ -41,7 +41,7 @@ export default function ContactPage() {
           <ContactForm />
         </section>
       </main>
-      <Footer theme="blue" />
+      <Footer theme="blue" tinted />
     </>
   );
 }

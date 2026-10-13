@@ -115,7 +115,7 @@ export default function AboutPage() {
           />
         </div>
       </main>
-      <Footer theme="blue" />
+      <Footer theme="blue" tinted />
     </>
   );
 }
