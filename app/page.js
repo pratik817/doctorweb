@@ -101,7 +101,7 @@ const categories = [
 export default function PatientHome() {
   return (
     <>
-      <Navbar theme="green" design="line" />
+      <Navbar theme="green" />
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-[linear-gradient(200deg,#0f8a1e_0%,#0a5f12_45%,#000_100%)] px-5 pt-16 text-center sm:pt-[72px]">
@@ -305,7 +305,7 @@ export default function PatientHome() {
           ]}
         />
       </main>
-      <Footer theme="green" design="line" />
+      <Footer theme="green" />
     </>
   );
 }

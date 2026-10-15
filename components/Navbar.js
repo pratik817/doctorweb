@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { themes, colourWash, brandLine } from "@/lib/themes";
+import { themes, colourWash } from "@/lib/themes";
 import Logo from "@/components/Logo";
 
 const navLinks = [
@@ -14,9 +14,7 @@ const navLinks = [
   { href: "/contact", label: "Contact Us" },
 ];
 
-// Two designs are live side by side so they can be compared:
-// "wash" tints the whole bar; "line" keeps it plain with a colour line below.
-export default function Navbar({ theme = "green", tinted = false, design = "wash" }) {
+export default function Navbar({ theme = "green", tinted = false }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -35,15 +33,12 @@ export default function Navbar({ theme = "green", tinted = false, design = "wash
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navClass = `sticky top-0 z-50 ${bg} ${design === "wash" ? colourWash : ""} transition-shadow duration-300 ${
+  const navClass = `sticky top-0 z-50 ${bg} ${colourWash} transition-shadow duration-300 ${
     scrolled ? "shadow-sm" : ""
   }`;
 
   return (
     <header className={navClass}>
-      {design === "line" && (
-        <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 h-1 ${brandLine}`} />
-      )}
       {/* full width: logo sits at the far left, menu at the far right */}
       <div className="flex h-[50px] items-center justify-between px-4 sm:px-6">
         {/* Logo */}
